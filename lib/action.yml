@@ -22,7 +22,6 @@ runs:
             "TREE_SITTER_REF=$TREE_SITTER_REF" \
             "TREE_SITTER_REPO=$TREE_SITTER_REPO"
       env:
-        GH_TOKEN: ${{github.token}}
         TREE_SITTER_REF: ${{inputs.tree-sitter-ref}}
         TREE_SITTER_REPO: https://github.com/tree-sitter/tree-sitter
     - name: Restore tree-sitter library from cache
