@@ -23,13 +23,13 @@ runs:
   using: composite
   steps:
     - name: Install the CLI
-      uses: cerfcast/setup-action/cli@f4e0f74a71d001ed196ccdf9f07df35fed752bde
+      uses: cerfcast/setup-action/cli@0d347490fc2e781c9e95b2a1d23bfbb78a3a19f2
       if: inputs.install-cli == 'true'
       with:
         rust-toolchain: ${{inputs.rust-toolchain}}
         tree-sitter-ref: ${{inputs.tree-sitter-ref}}
     - name: Install the library
-      uses: cerfcast/setup-action/lib@f4e0f74a71d001ed196ccdf9f07df35fed752bde
+      uses: cerfcast/setup-action/lib@0d347490fc2e781c9e95b2a1d23bfbb78a3a19f2
       if: inputs.install-lib == 'true'
       with:
         tree-sitter-ref: ${{inputs.tree-sitter-ref}}
