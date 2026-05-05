@@ -60,7 +60,7 @@ runs:
         fi
     - name: Set up the CLI path
       shell: sh
-      run: printf '${{runner.tool_cache}}/tree-sitter/cli/bin\n' >> "$GITHUB_PATH"
+      run: printf '${{runner.tool_cache}}/tree-sitter/cli/bin\n' >> "$GITEA_PATH"
     - name: Configure the parser directories
       working-directory: ${{runner.temp}}
       shell: bash
