@@ -15,6 +15,7 @@ runs:
     - name: Set up environment
       shell: bash
       run: |-
+        gh auth status
         if [[ $TREE_SITTER_REF == latest ]]; then
           TREE_SITTER_REF=$(gh release view -R "$TREE_SITTER_REPO" -q .tagName --json tagName)
         fi
@@ -22,7 +23,6 @@ runs:
             "TREE_SITTER_REF=$TREE_SITTER_REF" \
             "TREE_SITTER_REPO=$TREE_SITTER_REPO"
       env:
-        GH_TOKEN: ${{github.token}}
         TREE_SITTER_REF: ${{inputs.tree-sitter-ref}}
         TREE_SITTER_REPO: https://github.com/tree-sitter/tree-sitter
     - name: Restore tree-sitter CLI from cache
