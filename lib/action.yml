@@ -37,6 +37,7 @@ runs:
       working-directory: ${{runner.temp}}
       shell: bash
       run: |-
+        echo "Starting to do a clone!"
         printf '::group::Cloning tree-sitter\n'
 
         git clone "$TREE_SITTER_REPO" tree-sitter -q --filter=blob:none
