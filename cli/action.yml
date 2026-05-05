@@ -62,11 +62,14 @@ runs:
       shell: sh
       run: printf '${{runner.tool_cache}}/tree-sitter/cli/bin\n' >> "$GITEA_PATH"
     - name: Configure the parser directories
-      working-directory: $RUNNER_TEMP
+      working-directory: ${{runner.temp}}
       shell: bash
       run: |-
         echo $PATH
         config="$(tree-sitter init-config 2>&1 | cut -c32- | tr '\\' '/')"
+        echo $config
+        echo ${{github.workspace}}
+        echo ${GITHUB_WORKSPACE}
         printf '{"parser-directories":["%q"]}' "${GITHUB_WORKSPACE%/*}" > "$config"
     - name: Save tree-sitter CLI to cache
       uses: actions/cache/save@v4
