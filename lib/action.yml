@@ -18,6 +18,7 @@ runs:
         if [[ $TREE_SITTER_REF == latest ]]; then
           TREE_SITTER_REF=$(gh release view -R "$TREE_SITTER_REPO" -q .tagName --json tagName)
         fi
+        gh auth status
         printf '%s\n' >> "$GITHUB_ENV" \
             "TREE_SITTER_REF=$TREE_SITTER_REF" \
             "TREE_SITTER_REPO=$TREE_SITTER_REPO"
